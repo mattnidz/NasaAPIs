@@ -1,0 +1,41 @@
+
+<% provide(:title, "EONET") %>
+
+<h2><%= yield(:title) %> is the Earth Observatory Natural Event Tracker</h2>
+
+<p>Displaying the Wildfire events. The API here is EONET and contains a repository of metadata about natural events.</p>
+
+<table class="table table-responsive">
+<thead>
+    <tr>
+      <th>#</th>
+      <th>ID</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <% @json_string["events"].each_with_index do |all,i| %>
+    <% if all["categories"][0]["title"] == "Wildfires" %>
+      <th scope="row"><%= "#{i}" %></th>
+      <td><%= "#{all["id"]}" %></td>
+      <td><%= "#{all["title"]}" %></td>
+      
+    </tr>
+    <%end%>
+    <%end%>
+  </tbody>
+</table>
+
+
+
+<p>
+<% @json_string["events"].each do |f| %>
+<%= "output=#{f}" %>
+<%end%>
+</p>
+<br>
+
+<p>
+<%= "#{@json_string}" %>
+</p>

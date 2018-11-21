@@ -1,0 +1,33 @@
+
+<% provide(:title, "Astronomy Picture of the Day") %>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+<h1><%= yield(:title) %></h1>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">
+            <%= "#{@json_string[0]['title']}" %>
+            </h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+            </div>
+          </div>
+          
+<div class="card">
+  <img class="card-img-left" src=<%= "#{@json_string[0]['url']}" %> alt="Card image cap" style="max-height: 500px; max-width: 500px;/>
+  <div class="card-body">
+    <h4 class="card-title">
+    <%= "#{@json_string[0]["title"]}" %>
+    </h4>
+    <p class="card-text">
+      <%= "#{@json_string[0]["explanation"]}" %>
+    </p>
+    <a href="/apod" class="btn btn-primary">Next Image</a>
+  </div>
+</div>  
+        </main>
+      </div>
+    </div>
+
